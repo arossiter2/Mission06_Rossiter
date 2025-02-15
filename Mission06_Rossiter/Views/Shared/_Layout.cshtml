@@ -1,0 +1,103 @@
+﻿@* Shared layout page to show up on every view *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Mission06_Rossiter</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Mission06_Rossiter.styles.css" asp-append-version="true" />
+<style>
+        /* General styling */
+        body {
+            background-color: #f8f9fa; /* Very light gray-blue */
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: #333; /* Dark gray for text */
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #7895B2 !important; /* Soft muted blue */
+        }
+
+            .navbar .nav-link {
+                color: #fdfdfd !important; /* Off-white */
+            }
+
+            .navbar .navbar-brand {
+                color: #f0f0f0 !important;
+                font-weight: bold;
+            }
+
+        /* Main container styling */
+        .container {
+            max-width: 800px; /* Keeps content narrow and readable */
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Footer styling */
+        footer {
+            width: 100%; /* Full width */
+            background-color: #B3C8CF; /* Soft pastel blue-gray */
+            color: #555; /* Medium gray text */
+            padding: 10px 0;
+            position: relative;
+            text-align: center;
+            border: none; /* Removes any borders */
+            box-shadow: none; /* Ensures no shadows */
+        }
+
+
+
+
+
+</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Mission06_Rossiter</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Get To Know Joel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AddMovie">Add a Movie</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div>
+            &copy; 2025 - Mission06_Rossiter - <a>Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
