@@ -4,14 +4,21 @@
 @{
 }
 
-@model Mission06_Rossiter.Models.AddMovie
+@model Mission06_Rossiter.Models.Movie
 
 @* HTML for the inputs for the needed categories to add a movie to the database *@
 
 <h1>Add a Movie to Your Collection:</h1>
 <form method="post">
-    <label asp-for="Category">Category: </label>
-    <input asp-for="Category"/>
+    <input type="hidden" asp-for="MovieId" />
+
+    <select asp-for="CategoryId">
+        <option value=''>Select a Category</option>
+        @foreach (var c in ViewBag.Categories as List<Categories>)
+        {
+            <option value="@c.CategoryId">@c.CategoryName</option>
+        }
+    </select>
     <br />
     <label asp-for="Title">Title: </label>
     <input asp-for="Title"/>
@@ -39,6 +46,12 @@
     <br />
     <label asp-for="LentTo">Lent to: </label>
     <input asp-for="LentTo" />
+    <br />
+    <label asp-for="CopiedToPlex">Copied To Plex: </label>
+    <select asp-for="CopiedToPlex">
+        <option value="True">Yes</option>
+        <option value="False">No</option>
+    </select>
     <br />
     <label asp-for="Notes">Notes: </label>
     <br />
